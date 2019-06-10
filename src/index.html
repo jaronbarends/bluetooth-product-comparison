@@ -28,10 +28,13 @@
 		<!-- End battery status -->
 
 		<div>
-			state: <span id="pickupState" class="pickup-state">unknown</span>
+			state A: <span id="pickup-state-a" class="pickup-state">unknown</span>
+		</div>
+		<div>
+			state B: <span id="pickup-state-b" class="pickup-state">unknown</span>
 		</div>
 
-		<table>
+		<!-- <table>
 			<caption>euler orientation</caption>
 			<tr>
 				<th>roll</th>
@@ -43,76 +46,15 @@
 				<td id="pitch">&hellip;</td>
 				<td id="yaw">&hellip;</td>
 			</tr>
-		</table>
+		</table> -->
 
-		<table>
-			<caption>heading</caption>
-			<tr>
-				<th>heading</th>
-			</tr>
-			<tr>
-				<td id="heading">&hellip;</td>
-			</tr>
-		</table>
-
-		<table>
-			<caption>gravity vector</caption>
-			<tr>
-				<th>x</th>
-				<th>y</th>
-				<th>z</th>
-			</tr>
-			<tr>
-				<td id="gravity-x">&hellip;</td>
-				<td id="gravity-y">&hellip;</td>
-				<td id="gravity-z">&hellip;</td>
-			</tr>
-		</table>
-
-		<table>
-			<caption>quaternion orientation</caption>
-			<tr>
-				<th>w</th>
-				<th>x</th>
-				<th>y</th>
-				<th>z</th>
-			</tr>
-			<tr>
-				<td id="quaternion-w">&hellip;</td>
-				<td id="quaternion-x">&hellip;</td>
-				<td id="quaternion-y">&hellip;</td>
-				<td id="quaternion-z">&hellip;</td>
-			</tr>
-		</table>
-
-		
-		<table>
-			<caption>rotation matrix orientation</caption>
-			<tr>
-				<td id="r1c1">&hellip;</td>
-				<td id="r1c2">&hellip;</td>
-				<td id="r1c3">&hellip;</td>
-			</tr>
-			<tr>
-				<td id="r2c2">&hellip;</td>
-				<td id="r2c1">&hellip;</td>
-				<td id="r2c3">&hellip;</td>
-			</tr>
-			<tr>
-				<td id="r3c1">&hellip;</td>
-				<td id="r3c2">&hellip;</td>
-				<td id="r3c3">&hellip;</td>
-			</tr>
-		</table>
-
-		<a style="display: none;" href="#" id="pickup-watcher-calibration-btn">Positioned correctly now</a>
+		<!-- <a style="display: none;" href="#" id="pickup-watcher-calibration-btn">Positioned correctly now</a> -->
 
 	</div><!-- /.o-content-width -->
 	<script type="module" src="./components/thingy-connector/ThingyConnector.js"></script>
 	<script type="module" src="./components/battery-status/BatteryStatus.js"></script>
 	<script type="module" src="./components/thingy-orientation-watcher/ThingyOrientationWatcher.js"></script>
 	
-	<script type="module" src="./js/package-turnaround.js"></script>
 	<script type="module" src="./js/main.js"></script>
 </body>
 </html>

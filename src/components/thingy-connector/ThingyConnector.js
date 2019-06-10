@@ -1,5 +1,6 @@
 /*
-class for setting up connection with a Thingy
+* class for setting up connection with a Thingy
+* The Thingy itself doesn't send events upon connecting or disconnecting
 */
 
 import {thingyEvent} from "../../js/util/thingy-event.js";

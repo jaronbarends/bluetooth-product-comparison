@@ -3,10 +3,29 @@ import ThingyConnector from  "../components/thingy-connector/ThingyConnector.js"
 import BatteryStatus from  "../components/battery-status/BatteryStatus.js";
 import ThingyOrientationWatcher from "../components/thingy-orientation-watcher/ThingyOrientationWatcher.js";
 
-const thingyA = new Thingy({logEnabled: true});
-const thingyB = new Thingy({logEnabled: true});
+const thingyA = {
+	thingy: new Thingy({logEnabled: true}),
+	id: 'a',
+	name: 'Thingy A'
+};
 
+const thingyB = {
+	thingy: new Thingy({logEnabled: true}),
+	id: 'b',
+	name: 'Thingy B'
+};
 
+/**
+* handle change in pickup state
+* @returns {undefined}
+*/
+const pickupstatechangeHandler = function(detail) {
+	console.log(`state change for ${detail.name} - new state: ${detail.state}`);
+	const elmId = `pickup-state-${detail.id}`;
+	console.log(elmId);
+	const elm = document.getElementById(elmId);
+	elm.textContent = detail.state;
+}
 
 /**
 * initialize all
@@ -14,12 +33,15 @@ const thingyB = new Thingy({logEnabled: true});
 * @returns {undefined}
 */
 const init = function() {
-	new ThingyConnector(thingyA, {id: 'Thingy A', elm:document.getElementById(`connect-box-a`)});
-	new ThingyConnector(thingyB, {id: 'Thingy B', elm:document.getElementById(`connect-box-b`)});
-	
+	new ThingyConnector(thingyA.thingy, {id: thingyA.id, name: thingyA.name, elm:document.getElementById(`connect-box-a`)});
+	new ThingyConnector(thingyB.thingy, {id: thingyB.id, name: thingyB.name, elm:document.getElementById(`connect-box-b`)});
+
 	// new BatteryStatus();
-	new ThingyOrientationWatcher(thingyA);
-	// new ThingyOrientationWatcher(thingyB);
+	new ThingyOrientationWatcher(thingyA.thingy);
+	new ThingyOrientationWatcher(thingyB.thingy);
+
+
+	document.body.addEventListener('pickupstatechange', e => pickupstatechangeHandler(e.detail));
 };
 
 // kick of the script when all dom content has loaded
