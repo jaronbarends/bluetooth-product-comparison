@@ -21,10 +21,10 @@
 		<div id="connect-box-b"></div>
 		
 		<!-- Start battery status -->
-			<div class="battery-status" >
+			<!-- <div class="battery-status" >
 				<div id="battery-icon" class="battery-icon" style="--status: 0.5;"></div>
 				<span id="battery-value">&hellip;</span>%
-			</div>
+			</div> -->
 		<!-- End battery status -->
 
 		<div>
@@ -34,26 +34,10 @@
 			state B: <span id="pickup-state-b" class="pickup-state">unknown</span>
 		</div>
 
-		<!-- <table>
-			<caption>euler orientation</caption>
-			<tr>
-				<th>roll</th>
-				<th>pitch</th>
-				<th>yaw</th>
-			</tr>
-			<tr>
-				<td id="roll">&hellip;</td>
-				<td id="pitch">&hellip;</td>
-				<td id="yaw">&hellip;</td>
-			</tr>
-		</table> -->
-
-		<!-- <a style="display: none;" href="#" id="pickup-watcher-calibration-btn">Positioned correctly now</a> -->
-
 	</div><!-- /.o-content-width -->
 	<script type="module" src="./components/thingy-connector/ThingyConnector.js"></script>
-	<script type="module" src="./components/battery-status/BatteryStatus.js"></script>
-	<script type="module" src="./components/thingy-orientation-watcher/ThingyOrientationWatcher.js"></script>
+	<!-- <script type="module" src="./components/battery-status/BatteryStatus.js"></script> -->
+	<script type="module" src="./components/thingy-pickup-watcher/ThingyPickupWatcher.js"></script>
 	
 	<script type="module" src="./js/main.js"></script>
 </body>

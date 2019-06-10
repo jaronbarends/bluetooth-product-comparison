@@ -5,7 +5,7 @@ Requires ThingyConnector.js to be present in the page
 */
 import {thingyEvent} from '../../js/util/thingy-event.js';
 
-export default class ThingyOrientationWatcher {
+export default class ThingyPickupWatcher {
 	constructor(thingy) {
 		this.thingy = thingy;
 

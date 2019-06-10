@@ -1,7 +1,7 @@
 import Thingy from "./vendor/thingy/index.js";
 import ThingyConnector from  "../components/thingy-connector/ThingyConnector.js";
 import BatteryStatus from  "../components/battery-status/BatteryStatus.js";
-import ThingyOrientationWatcher from "../components/thingy-orientation-watcher/ThingyOrientationWatcher.js";
+import ThingyPickupWatcher from "../components/thingy-pickup-watcher/ThingyPickupWatcher.js";
 
 const thingyA = {
 	thingy: new Thingy({logEnabled: true}),
@@ -37,8 +37,8 @@ const init = function() {
 	new ThingyConnector(thingyB.thingy, {id: thingyB.id, name: thingyB.name, elm:document.getElementById(`connect-box-b`)});
 
 	// new BatteryStatus();
-	new ThingyOrientationWatcher(thingyA.thingy);
-	new ThingyOrientationWatcher(thingyB.thingy);
+	new ThingyPickupWatcher(thingyA.thingy);
+	new ThingyPickupWatcher(thingyB.thingy);
 
 
 	document.body.addEventListener('pickupstatechange', e => pickupstatechangeHandler(e.detail));
