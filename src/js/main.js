@@ -3,6 +3,8 @@ import ThingyConnector from  "../components/thingy-connector/ThingyConnector.js"
 import BatteryStatus from  "../components/battery-status/BatteryStatus.js";
 import ThingyPickupWatcher from "../components/thingy-pickup-watcher/ThingyPickupWatcher.js";
 
+const products = document.getElementById(`products`);
+
 const thingyA = {
 	thingy: new Thingy({logEnabled: true}),
 	id: 'a',
@@ -25,6 +27,13 @@ const pickupstatechangeHandler = function(detail) {
 	console.log(elmId);
 	const elm = document.getElementById(elmId);
 	elm.textContent = detail.state;
+
+	const className = `products--${detail.id}-active`;
+	if (detail.state === 'active') {
+		products.classList.add(className);
+	} else {
+		products.classList.remove(className);
+	}
 }
 
 
