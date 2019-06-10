@@ -82,6 +82,16 @@ h2 {
 	max-width: 100%;
 }
 
+.instructions__content:before {
+	content: '';
+	display: block;
+	height: 0;
+	width: 600px;
+	margin: 0 auto;
+	border-top: 1px solid #999;
+	transform: translateY(130px);
+}
+
 .product--a,
 .product--b,
 .product-comparison {
@@ -156,18 +166,20 @@ h2 {
 		height: var(--size);
 	}
 
-	.pack-shot::after {
-		content: '';
+	.panel__content .pack-shot {
+		margin-left: 2em;
+	}
+
+	.pack-shot::after {    content: '';
 		display: block;
 		z-index: -1;
 		position: absolute;
-		width: 100%;
+		width: 160%;
 		height: 10px;
-		background: transparent;
+		background: radial-gradient(rgba(0,0,0,0.5), transparent 70%);
 		border: 0;
-		left: 18px;
-		bottom: 0;
-		box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		left: -70px;
+		bottom: -4px;
 	}
 	
 	.pack-face {
@@ -182,6 +194,10 @@ h2 {
 
 	.pack-face--front {
 		left: 25%;
+	}
+
+	.pack-face--side {
+		background: #eee;
 	}
 
 	.pack-title {
