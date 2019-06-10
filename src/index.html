@@ -9,15 +9,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="./components/buttons/buttons.css">
 	<link rel="stylesheet" href="./components/thingy-connector/thingy-connector.css">
 	<link rel="stylesheet" href="./components/battery-status/battery-status.css">
 </head>
 <body>
 	<div class="o-content-width">
 		
-		<div id="connect-box-a"></div>
-		<div id="connect-box-b"></div>
+		<div id="connect-box" class="connect-box"></div>
 
 		<section id="products" class="products">
 		<!-- <section id="products" class="products products--a-active products--b-active"> -->
@@ -150,19 +148,22 @@
 			</section>
 		</section>
 
-		<div>
-			state A: <span id="pickup-state-a" class="pickup-state">unknown</span>
-		</div>
-		<div>
-			state B: <span id="pickup-state-b" class="pickup-state">unknown</span>
-		</div>
+		<div class="debug-info">
 
-		<p>
-			<input type="checkbox" id="cb-a" checked><label for="cb-a"> product A</label>
-		</p>
-		<p>
-			<input type="checkbox" id="cb-b" checked><label for="cb-b"> product B</label>
-		</p>
+			<div>
+				state A: <span id="pickup-state-a" class="pickup-state">unknown</span>
+			</div>
+			<div>
+				state B: <span id="pickup-state-b" class="pickup-state">unknown</span>
+			</div>
+
+			<p>
+				<input type="checkbox" id="cb-a"><label for="cb-a"> product A</label>
+			</p>
+			<p>
+				<input type="checkbox" id="cb-b"><label for="cb-b"> product B</label>
+			</p>
+		</div>
 
 	</div><!-- /.o-content-width -->
 	<script type="module" src="./components/thingy-connector/ThingyConnector.js"></script>

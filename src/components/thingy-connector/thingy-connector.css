@@ -1,0 +1,28 @@
+.ty-connect-box {
+	display: inline-block;
+}
+
+.ty-connect-btn {
+	display: inline-block;
+	margin: 0.5em;
+	padding: 0.5em 1em;
+	border: 2px solid transparent;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: box-shadow 0.2s;
+}
+
+.ty-connect-btn:hover,
+.ty-connect-btn:focus {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.ty-connect-btn--disconnect {
+	border-color: #999;
+	color: #4a4a4a;
+	background: transparent;
+}
+
+.ty-connect-btn--is-disabled {
+	display: none;
+}

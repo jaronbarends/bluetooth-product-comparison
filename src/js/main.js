@@ -45,20 +45,29 @@ const initDummy = function() {
 	const products = document.getElementById(`products`);
 	const cbA = document.getElementById('cb-a');
 	const cbB = document.getElementById('cb-b');
+	const classA = 'products--a-active';
+	const classB = 'products--b-active';
+
+	if (products.classList.contains(classA)) {
+		cbA.checked = true;
+	}
+	if (products.classList.contains(classB)) {
+		cbB.checked = true;
+	}
 
 	cbA.addEventListener('click', (e) => {
 		if (e.target.checked) {
-			products.classList.add('products--a-active');
+			products.classList.add(classA);
 		} else {
-			products.classList.remove('products--a-active');
+			products.classList.remove(classA);
 		}
 	});
 
 	cbB.addEventListener('click', (e) => {
 		if (e.target.checked) {
-			products.classList.add('products--b-active');
+			products.classList.add(classB);
 		} else {
-			products.classList.remove('products--b-active');
+			products.classList.remove(classB);
 		}
 	});
 };
@@ -70,8 +79,9 @@ const initDummy = function() {
 * @returns {undefined}
 */
 const init = function() {
-	new ThingyConnector(thingyA.thingy, {id: thingyA.id, name: thingyA.name, elm:document.getElementById(`connect-box-a`)});
-	new ThingyConnector(thingyB.thingy, {id: thingyB.id, name: thingyB.name, elm:document.getElementById(`connect-box-b`)});
+	const connectBox = document.getElementById(`connect-box`);
+	new ThingyConnector(thingyA.thingy, {id: thingyA.id, name: thingyA.name, elm: connectBox});
+	new ThingyConnector(thingyB.thingy, {id: thingyB.id, name: thingyB.name, elm: connectBox});
 
 	// new BatteryStatus();
 	new ThingyPickupWatcher(thingyA.thingy);

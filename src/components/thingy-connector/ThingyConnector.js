@@ -12,7 +12,7 @@ const eventNames = {
 
 const cssClasses = {
 	box: 'ty-connect-box',
-	btnDisabled: 'btn--is-disabled',
+	btnDisabled: 'ty-connect-btn--is-disabled',
 }
 
 export default class ThingyConnector {
@@ -41,7 +41,7 @@ export default class ThingyConnector {
 	*/
 	addConnectBox() {
 		const html = `<input class="ty-connect-btn" type="button" data-ty-connect-btn value="connect ${this.settings.name}">
-			<input class="ty-connect-btn ty-connect-btn--is-disabled" type="button" data-ty-disconnect-btn value="disconnect ${this.settings.name}">`;
+			<input class="ty-connect-btn ty-connect-btn--disconnect ty-connect-btn--is-disabled" type="button" data-ty-disconnect-btn value="disconnect ${this.settings.name}">`;
 
 		const box = document.createElement(`div`);
 		box.classList.add(cssClasses.box);

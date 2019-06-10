@@ -37,6 +37,20 @@ h2 {
 	font-weight: bold;
 }
 
+.debug-info {
+	display: none;	
+}
+
+.debug-mode .debug-info {
+	display: block;
+}
+
+.connect-box {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
 .products {
 	margin: 0 auto;
 	display: flex;
