@@ -19,15 +19,39 @@
 		<div id="connect-box-a"></div>
 		<div id="connect-box-b"></div>
 
-		<section id="products" class="products products--a-active">
+		<section id="products" class="products">
+		<!-- <section id="products" class="products products--a-active products--b-active"> -->
 
 			<section id="instructions" class="instructions">
-				instructions
+				<h1>Learn all about our boxes</h1>
+				<div class="instructions__content">
+					<div class="pack-shot pack-shot--a">
+						<div class="pack-face pack-face--side"></div>
+						<div class="pack-face pack-face--front">
+							<div class="pack-title">B</div>
+						</div>
+					</div>
+					<div class="pack-shot pack-shot--b">
+						<div class="pack-face pack-face--side"></div>
+						<div class="pack-face pack-face--front">
+							<div class="pack-title">O</div>
+						</div>
+					</div>
+				</div>
+
+				
+
 			</section>
 
 			<section id="product-a" class="product product--a">
 				<div class="panel__content">
 					<div class="product__text">
+						<div class="pack-shot pack-shot--a">
+							<div class="pack-face pack-face--side"></div>
+							<div class="pack-face pack-face--front">
+								<div class="pack-title">B</div>
+							</div>
+						</div>
 						<h2>Calming Blue Box</h2>
 						<p class="intro">
 							Stressed in your life? The Calming Blue Box&trade; will make your life bearable again. Manifactured from the finest materials, it is a delight to the touch. Its beautiful blue color will stimulate your brain to activate the calming neurones.
@@ -48,22 +72,51 @@
 
 			<section id="comparison" class="product-comparison">
 				<div class="panel__content">
-					comparison
 					<table class="comparison-table">
 						<tr>
 							<th scope="col"></th>
-							<th scope="col">Product A</th>
-							<th scope="col">Product B</th>
+							<th scope="col" class="th--product-a">Calming Blue</th>
+							<th scope="col" class="th--product-b">Active Orange</th>
 						</tr>
 						<tr>
-							<th scope="row">Feature A</th>
-							<td><span class="feature--pro">✔</span></td>
-							<td><span class="feature--pro">✔</span></td>
+							<th scope="row">Relaxing</th>
+							<td><span class="feature feature--pro">✔</span></td>
+							<td><span class="feature feature--con">✘</span></td>
 						</tr>
 						<tr>
-							<th scope="row">Feature b</th>
-							<td><span class="feature--pro">✔</span></td>
-							<td><span class="feature--con">✘</span></td>
+							<th scope="row">Energizing</th>
+							<td><span class="feature feature--con">✘</span></td>
+							<td><span class="feature feature--pro">✔</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Dimensions</th>
+							<td><span class="feature">19×19×6 cm</span></td>
+							<td><span class="feature">18×18×5 cm</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Weight</th>
+							<td><span class="feature">438 g</span></td>
+							<td><span class="feature">380 g</span></td>
+						</tr>
+						<tr>
+							<th scope="row">100% wood</th>
+							<td><span class="feature feature--pro">✔</span></td>
+							<td><span class="feature feature--pro">✔</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Made by hand</th>
+							<td><span class="feature feature--pro">✔</span></td>
+							<td><span class="feature feature--con">✘</span></td>
+						</tr>
+						<tr>
+							<th scope="row">1 yr. warranty</th>
+							<td><span class="feature feature--pro">✔</span></td>
+							<td><span class="feature feature--pro">✔</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Bluetooth support</th>
+							<td><span class="feature feature--con">✘</span></td>
+							<td><span class="feature feature--pro">✔</span></td>
 						</tr>
 					</table>
 				</div>
@@ -72,14 +125,20 @@
 			<section id="product-b" class="product product--b">
 				<div class="panel__content">
 					<div class="product__text">
-						<h2>Energizing Orange Box</h2>
+						<div class="pack-shot pack-shot--b">
+							<div class="pack-face pack-face--side"></div>
+							<div class="pack-face pack-face--front">
+								<div class="pack-title">O</div>
+							</div>
+						</div>
+						<h2>Active Orange Box</h2>
 						<p class="intro">
-							Stressed in your life? The Calming Blue Box&trade; will make your life bearable again. Manifactured from the finest materials, it is a delight to the touch. Its beautiful blue color will stimulate your brain to activate the calming neurones.
+							Bored with your life? The Active Orange Box&trade; will make you enjoy your life again. Manifactured from the finest materials, it is a delight to the touch. Its bright orange color will stimulate your brain to activate the senses.
 						</p>
 						<!-- <p> Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> -->
 						<ul class="features-list">
-							<li>Soothing blue color</li>
-							<li>Relaxing effect</li>
+							<li>Energizing orange color</li>
+							<li>Stimulating effect</li>
 							<li>100% pure wood</li>
 							<li>1 year world-wide warranty</li>
 						</ul>
@@ -102,7 +161,7 @@
 			<input type="checkbox" id="cb-a" checked><label for="cb-a"> product A</label>
 		</p>
 		<p>
-			<input type="checkbox" id="cb-b"><label for="cb-b"> product B</label>
+			<input type="checkbox" id="cb-b" checked><label for="cb-b"> product B</label>
 		</p>
 
 	</div><!-- /.o-content-width -->
