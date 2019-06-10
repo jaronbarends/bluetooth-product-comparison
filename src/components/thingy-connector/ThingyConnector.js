@@ -1,5 +1,5 @@
 /*
-class for setting up connection with Thingy
+class for setting up connection with a Thingy
 */
 
 import {thingyEvent} from "../../js/util/thingy-event.js";
@@ -14,14 +14,6 @@ const cssClasses = {
 	btnDisabled: 'btn--is-disabled',
 }
 
-const constants = {
-	cssClasses,
-	eventNames,
-};
-
-const connectBtn = document.getElementById(`connect-btn`);
-const disconnectBtn = document.getElementById(`disconnect-btn`);
-
 export default class ThingyConnector {
 
 	constructor(thingy, options) {
@@ -29,16 +21,16 @@ export default class ThingyConnector {
 			id: 'Thingy',
 			elm: document.body,// element to append connect box to
 		};
-		const settings = Object.assign({}, defaults, options);
-		if (!settings.name) {
-			settings.name = settings.id;
+		this.settings = Object.assign({}, defaults, options);
+		if (!this.settings.name) {
+			this.settings.name = this.settings.id;
 		}
 
 		this.thingy = thingy;
-		this.id = settings.id;
-		this.addConnectBox(thingy, settings);
-		// this._addEventListeners();
-		// this._initButtons();
+		this.id = this.settings.id;
+		this.addConnectBox();
+		this._addEventListeners();
+		this._initButtons();
 	}
 
 
@@ -46,25 +38,16 @@ export default class ThingyConnector {
 	* add connectbox to the page
 	* @returns {undefined}
 	*/
-	addConnectBox(thingy, options) {
-		const html = `<input class="ty-connect-btn" type="button" data-ty-connect-btn value="connect ${options.name}">
-			<input class="ty-connect-btn ty-connect-btn--is-disabled" type="button" data-ty-disconnect-btn value="disconnect ${options.name}">`;
+	addConnectBox() {
+		const html = `<input class="ty-connect-btn" type="button" data-ty-connect-btn value="connect ${this.settings.name}">
+			<input class="ty-connect-btn ty-connect-btn--is-disabled" type="button" data-ty-disconnect-btn value="disconnect ${this.settings.name}">`;
 
 		const box = document.createElement(`div`);
 		box.classList.add(cssClasses.box);
 		box.innerHTML = html;
 
-		const connectBtn = box.querySelector('[data-ty-connect-btn');
-		const disconnectBtn = box.querySelector('[data-ty-disconnect-btn');
-
-		connectBtn.addEventListener('click', async () => {
-			this._start(thingy);
-		});
-		disconnectBtn.addEventListener('click', async () => {
-			this._stop(thingy);
-		});
-
-		options.elm.appendChild(box);
+		this.settings.elm.appendChild(box);
+		this.connectBox = box;
 	};
 
 
@@ -75,7 +58,12 @@ export default class ThingyConnector {
 	async _start(thingy) {
 		try {
 			await thingy.connect();
-			thingyEvent.sendThingyEvent(eventNames.connect, {thingy});
+			const detail = {
+				thingy,
+				id: this.settings.id,
+				name: this.settings.name,
+			};
+			thingyEvent.sendThingyEvent(eventNames.connect, detail);
 		} catch (error) {
 			console.error(error);
 		}
@@ -89,7 +77,12 @@ export default class ThingyConnector {
 	async _stop(thingy) {
 		try {
 			await thingy.disconnect();
-			thingyEvent.sendThingyEvent(eventNames.disconnect, {thingy});
+			const detail = {
+				thingy,
+				id: this.settings.id,
+				name: this.settings.name,
+			};
+			thingyEvent.sendThingyEvent(eventNames.disconnect, detail);
 		} catch(error) {
 			console.error(error);
 		}
@@ -101,10 +94,13 @@ export default class ThingyConnector {
 	* @returns {undefined}
 	*/
 	_initButtons() {
-		connectBtn.addEventListener('click', async () => {
+		this.connectBtn = this.connectBox.querySelector('[data-ty-connect-btn');
+		this.disconnectBtn = this.connectBox.querySelector('[data-ty-disconnect-btn');
+
+		this.connectBtn.addEventListener('click', async () => {
 			this._start(this.thingy);
 		});
-		disconnectBtn.addEventListener('click', async () => {
+		this.disconnectBtn.addEventListener('click', async () => {
 			this._stop(this.thingy);
 		});
 	};
@@ -114,9 +110,15 @@ export default class ThingyConnector {
 	* handle connection being made
 	* @returns {undefined}
 	*/
-	_connectHandler() {
-		connectBtn.classList.add(cssClasses.btnDisabled);
-		disconnectBtn.classList.remove(cssClasses.btnDisabled);
+	_connectHandler(e) {
+		if (e.detail.thingy === this.thingy) {
+			// it's our Thingy 
+			this.connectBtn.classList.add(cssClasses.btnDisabled);
+			this.disconnectBtn.classList.remove(cssClasses.btnDisabled);
+		} else {
+			// it's another Thingy
+			console.log(`other Thingy connected: ${e.detail.name}`);
+		}
 	};
 
 
@@ -124,9 +126,16 @@ export default class ThingyConnector {
 	* handle connection being closed
 	* @returns {undefined}
 	*/
-	_disconnectHandler() {
-		connectBtn.classList.remove(cssClasses.btnDisabled);
-		disconnectBtn.classList.add(cssClasses.btnDisabled);
+	_disconnectHandler(e) {
+		console.log('disconnect:', e);
+		if (e.detail.thingy === this.thingy) {
+			// it's our Thingy 
+			this.connectBtn.classList.remove(cssClasses.btnDisabled);
+			this.disconnectBtn.classList.add(cssClasses.btnDisabled);
+		} else {
+			// it's another Thingy
+			console.log(`other Thingy disconnected: ${e.detail.name}`);
+		}
 	};
 
 
@@ -135,8 +144,8 @@ export default class ThingyConnector {
 	* @returns {undefined}
 	*/
 	_addEventListeners() {
-		document.body.addEventListener(eventNames.connect, this._connectHandler);
-		document.body.addEventListener(eventNames.disconnect, this._disconnectHandler);
+		document.body.addEventListener(eventNames.connect, e => this._connectHandler(e));
+		document.body.addEventListener(eventNames.disconnect, e => this._disconnectHandler(e));
 	};
 
 	
