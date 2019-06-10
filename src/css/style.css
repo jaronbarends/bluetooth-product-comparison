@@ -9,6 +9,12 @@
 	
 /*-- End reset --*/
 
+@font-face {
+	font-family: "chunkfive";
+	src: url("/assets/fonts/Chunkfive.otf") format("otf"),
+		 url("/assets/fonts/chunkfive-webfont.woff") format("woff");
+}
+
 :root {
 	--color-product-a: cornflowerblue;
 	--color-product-b: orangered;
@@ -26,22 +32,27 @@ body {
 	color: #333;
 }
 
+h1,
+h2 {
+	font-family: chunkfive, arial;
+	font-weight: normal;
+	color: #555;
+}
+
 h1 {
-	font-size: 3.2rem;
-	font-weight: bold;
+	font-size: 4.8rem;
 }
 
 h2 {
 	margin-bottom: 0.5em;
 	font-size: 2.4rem;
-	font-weight: bold;
 }
 
 .debug-info {
 	display: none;	
 }
 
-.debug-mode .debug-info {
+.debug .debug-info {
 	display: block;
 }
 
@@ -108,11 +119,16 @@ h2 {
 /*-- styling per section --*/
 
 	.instructions {
+		padding-top: 8rem;
 		text-align: center;
 	}
 
-	h1 {
-		margin: 2em;
+	.instructions__title {
+		margin: 0 0 0.5em;
+	}
+
+	.instructions__intro {
+		margin-bottom: 5rem;
 	}
 
 	.instructions .pack-shot {
@@ -180,7 +196,8 @@ h2 {
 		border-radius: 4px;
 		background: var(--color-product-a);
 		color: white;
-		font-weight: bold;
+		font-family: chunkfive, arial;
+		font-size: 5.0rem;
 	}
 
 	.pack-shot--b .pack-title {

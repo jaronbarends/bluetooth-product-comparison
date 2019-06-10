@@ -8,13 +8,13 @@ const products = document.getElementById(`products`);
 const thingyA = {
 	thingy: new Thingy({logEnabled: true}),
 	id: 'a',
-	name: 'Thingy A'
+	name: 'Blue Box'
 };
 
 const thingyB = {
 	thingy: new Thingy({logEnabled: true}),
 	id: 'b',
-	name: 'Thingy B'
+	name: 'Orange Box'
 };
 
 /**
