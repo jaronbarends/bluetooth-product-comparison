@@ -27,6 +27,34 @@ const pickupstatechangeHandler = function(detail) {
 	elm.textContent = detail.state;
 }
 
+
+/**
+* 
+* @returns {undefined}
+*/
+const initDummy = function() {
+	const products = document.getElementById(`products`);
+	const cbA = document.getElementById('cb-a');
+	const cbB = document.getElementById('cb-b');
+
+	cbA.addEventListener('click', (e) => {
+		if (e.target.checked) {
+			products.classList.add('products--a-active');
+		} else {
+			products.classList.remove('products--a-active');
+		}
+	});
+
+	cbB.addEventListener('click', (e) => {
+		if (e.target.checked) {
+			products.classList.add('products--b-active');
+		} else {
+			products.classList.remove('products--b-active');
+		}
+	});
+};
+
+
 /**
 * initialize all
 * @param {string} varname Description
@@ -42,6 +70,8 @@ const init = function() {
 
 
 	document.body.addEventListener('pickupstatechange', e => pickupstatechangeHandler(e.detail));
+
+	initDummy();
 };
 
 // kick of the script when all dom content has loaded

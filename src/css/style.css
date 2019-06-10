@@ -1,12 +1,12 @@
 
 /*-- Start reset --*/
-	a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark form,menu,nav,object,ol,option,output,p,pre,q,ruby,s,samp,section,select,small,span,strike,strong,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;border:0;padding:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+	a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark form,menu,nav,object,ol,option,output,p,pre,q,ruby,s,samp,section,select,small,span,strike,strong,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;border:0;padding:0;font:inherit;vertical-align:baseline;box-sizing: border-box;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 	button,input[type=checkbox],input[type=image],input[type=radio],input[type=submit],label{cursor:pointer}
 	strong{font-weight:700}
 	em{font-style:italic}
-	.fList{list-style:none}
 	sub, sup {font-size: 0.8em;vertical-align:sub;}
 	sup { vertical-align: super;}
+	
 /*-- End reset --*/
 
 html {
@@ -17,6 +17,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.6rem;
 	line-height: 1.5;
+	background: #f8f8f8;
 }
 
 h1 {
@@ -25,10 +26,136 @@ h1 {
 }
 
 h2 {
+	margin-bottom: 0.5em;
 	font-size: 2.4rem;
 	font-weight: bold;
 }
 
-.pickup-state {
-	font-weight: bold;
+.products {
+	--color-product-a: cornflowerblue;
+	--color-product-b: orangered;
+	margin: 0 auto;
+	display: flex;
+	width: 100%;
+	max-width: 900px;
+	/* justify-content: stretch; */
+}
+
+.products > section {
+	overflow: hidden;
+	flex: 1 1 auto;
+	height: 60vh;
+	transition: max-width 0.3s;
+}
+
+.instructions {
+	/* default: only instructions visible */
+	max-width: 100%;
+}
+
+.product--a,
+.product--b,
+.product-comparison {
+	max-width: 0;
+}
+
+	.products--a-active .product--a,
+	.products--b-active .product--b {
+		max-width: 100%;
+	}
+
+	.products--a-active .instructions,
+	.products--a-active .product--b,
+	.products--a-active .product-comparison,
+	.products--b-active .instructions,
+	.products--b-active .product--a,
+	.products--b-active .product-comparison {
+		max-width: 0;
+	}
+
+	.products--a-active .product--b .product__video,
+	.products--b-active .product--a .product__video {
+		display: none;
+	}
+
+	.products--a-active.products--b-active .product--a,
+	.products--a-active.products--b-active .product--b,
+	.products--a-active.products--b-active .product-comparison {
+		max-width: 33%;
+	}
+
+/*-- styling per section --*/
+
+	.products {
+	}
+
+	
+	.panel__content {
+		display: flex;
+		padding: 2em;
+	}
+
+	.product--a h2 {
+		color: var(--color-product-a);
+	}
+
+	.product--b h2 {
+		color:  var(--color-product-b);
+	}
+
+	.product__text {
+		max-width: 20em;
+	}
+
+	.product__video {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 480px;
+		height: 360px;
+		background: #ccc;
+	}
+
+	.video__controls {
+		position: relative;
+		width: 100px;
+		height: 60px;
+		border-radius: 5px;
+		background: white;
+	}
+
+	.video__controls::after {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-20%, -50%);
+		width: 0;
+		height: 0;
+		border: 10px solid transparent;
+		border-left: 20px solid var(--color-product-a);
+	}
+
+	.product--b .video__controls::after {
+		border-left-color: var(--color-product-b);
+	}
+
+	/*-- product --*/
+	.features-list {
+		padding: 1em;
+		list-style-type: square;
+	}
+
+.comparison-table th[scope="col"],
+.comparison-table td {
+	text-align: center;
+}
+
+.feature--pro {
+	color: green;
+}
+
+.feature--con {
+	color: darkred;
 }

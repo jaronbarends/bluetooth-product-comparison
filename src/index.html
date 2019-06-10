@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/table.css">
 	<link rel="stylesheet" href="./components/buttons/buttons.css">
 	<link rel="stylesheet" href="./components/thingy-connector/thingy-connector.css">
 	<link rel="stylesheet" href="./components/battery-status/battery-status.css">
@@ -19,13 +18,78 @@
 		
 		<div id="connect-box-a"></div>
 		<div id="connect-box-b"></div>
-		
-		<!-- Start battery status -->
-			<!-- <div class="battery-status" >
-				<div id="battery-icon" class="battery-icon" style="--status: 0.5;"></div>
-				<span id="battery-value">&hellip;</span>%
-			</div> -->
-		<!-- End battery status -->
+
+		<section id="products" class="products products--a-active">
+
+			<section id="instructions" class="instructions">
+				instructions
+			</section>
+
+			<section id="product-a" class="product product--a">
+				<div class="panel__content">
+					<div class="product__text">
+						<h2>Calming Blue Box</h2>
+						<p class="intro">
+							Stressed in your life? The Calming Blue Box&trade; will make your life bearable again. Manifactured from the finest materials, it is a delight to the touch. Its beautiful blue color will stimulate your brain to activate the calming neurones.
+						</p>
+						<!-- <p> Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> -->
+						<ul class="features-list">
+							<li>Soothing blue color</li>
+							<li>Relaxing effect</li>
+							<li>100% pure wood</li>
+							<li>1 year world-wide warranty</li>
+						</ul>
+					</div>
+					<div class="product__video">
+						<div class="video__controls"></div>
+					</div>
+				</div>
+			</section>
+
+			<section id="comparison" class="product-comparison">
+				<div class="panel__content">
+					comparison
+					<table class="comparison-table">
+						<tr>
+							<th scope="col"></th>
+							<th scope="col">Product A</th>
+							<th scope="col">Product B</th>
+						</tr>
+						<tr>
+							<th scope="row">Feature A</th>
+							<td><span class="feature--pro">✔</span></td>
+							<td><span class="feature--pro">✔</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Feature b</th>
+							<td><span class="feature--pro">✔</span></td>
+							<td><span class="feature--con">✘</span></td>
+						</tr>
+					</table>
+				</div>
+			</section>
+			
+			<section id="product-b" class="product product--b">
+				<div class="panel__content">
+					<div class="product__text">
+						<h2>Energizing Orange Box</h2>
+						<p class="intro">
+							Stressed in your life? The Calming Blue Box&trade; will make your life bearable again. Manifactured from the finest materials, it is a delight to the touch. Its beautiful blue color will stimulate your brain to activate the calming neurones.
+						</p>
+						<!-- <p> Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p> -->
+						<ul class="features-list">
+							<li>Soothing blue color</li>
+							<li>Relaxing effect</li>
+							<li>100% pure wood</li>
+							<li>1 year world-wide warranty</li>
+						</ul>
+					</div>
+					<div class="product__video">
+						<div class="video__controls"></div>
+					</div>
+				</div>
+			</section>
+		</section>
 
 		<div>
 			state A: <span id="pickup-state-a" class="pickup-state">unknown</span>
@@ -34,9 +98,15 @@
 			state B: <span id="pickup-state-b" class="pickup-state">unknown</span>
 		</div>
 
+		<p>
+			<input type="checkbox" id="cb-a" checked><label for="cb-a"> product A</label>
+		</p>
+		<p>
+			<input type="checkbox" id="cb-b"><label for="cb-b"> product B</label>
+		</p>
+
 	</div><!-- /.o-content-width -->
 	<script type="module" src="./components/thingy-connector/ThingyConnector.js"></script>
-	<!-- <script type="module" src="./components/battery-status/BatteryStatus.js"></script> -->
 	<script type="module" src="./components/thingy-pickup-watcher/ThingyPickupWatcher.js"></script>
 	
 	<script type="module" src="./js/main.js"></script>
